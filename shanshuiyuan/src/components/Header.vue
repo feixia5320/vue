@@ -1,39 +1,54 @@
 <template>
   <div class="main-contain">
+    <span class="logo">
+      <img src="../assets/logo.jpg" alt />
+    </span>
     <el-menu
       :default-active="activeIndex"
-      class="el-menu-demo"
+      class="el-menu-demo nav"
       mode="horizontal"
+      active-text-color="#ffd04b"
       @select="handleSelect"
     >
-      <el-menu-item index="1">{{i18n.home_nav_homepage}}</el-menu-item>
-      <el-submenu index="2">
+      <el-menu-item index="/">{{i18n.home_nav_homepage}}</el-menu-item>
+      <el-submenu index="/company">
         <template slot="title">{{i18n.home_nav_company}}</template>
         <el-menu-item index="2-1">选项1</el-menu-item>
         <el-menu-item index="2-2">选项2</el-menu-item>
         <el-menu-item index="2-3">选项3</el-menu-item>
       </el-submenu>
-      <el-menu-item index="3">{{i18n.home_nav_news}}</el-menu-item>
-      <el-menu-item index="4">{{i18n.home_nav_aboutus}}</el-menu-item>
-      <el-menu-item index="5">{{i18n.home_nav_admin}}</el-menu-item>
+      <el-menu-item index="/business">{{i18n.home_nav_business}}</el-menu-item>
+      <el-menu-item index="/news">{{i18n.home_nav_news}}</el-menu-item>
+      <el-menu-item index="/about">{{i18n.home_nav_aboutus}}</el-menu-item>
+      <el-menu-item index="/admin">{{i18n.home_nav_admin}}</el-menu-item>
     </el-menu>
   </div>
 </template>
 
 <script>
 import { lan_zh } from "../i18n/zh";
+import { mapState } from "vuex";
+
 export default {
   name: "Header",
   data() {
     return {
       i18n: lan_zh.lan,
-      activeIndex: "1",
+      canRouter: true
     };
+  },
+  computed: {
+    //使用对象展开运算符
+    ...mapState({
+      // 箭头函数可使代码更简练
+      activeIndex: state => state.navState
+    })
   },
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
-    }
+      this.$store.commit("updateState", key);
+      this.$router.push(key);
+    },
   },
   created() {}
 };
@@ -59,5 +74,16 @@ a {
 .main-contain {
   width: 70%;
   margin: 0 auto;
+}
+.logo {
+  display: inline-block;
+  margin-right: 80px;
+}
+.logo img {
+  width: 70px;
+}
+.nav {
+  display: inline-block;
+  vertical-align: top;
 }
 </style>
