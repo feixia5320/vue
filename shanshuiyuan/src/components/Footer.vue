@@ -32,7 +32,7 @@
 import { lan_zh } from "../i18n/zh";
 import { Const } from "../utils/const";
 export default {
-  name: "Header",
+  name: "Footer",
   data() {
     return {
       i18n: lan_zh.lan,

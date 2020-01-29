@@ -1,9 +1,9 @@
 <template>
-  <div>
+  <div style="width: 98%; margin:0 auto">
     <Header></Header>
+    <BusinessSection></BusinessSection>
     <!-- 路由插槽 -->
     <router-view />
-    <p>jdsjlfkj</p>
     <Footer></Footer>
   </div>
 </template>
@@ -11,15 +11,18 @@
 <script>
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import BusinessSection from "../components/BusinessSection";
+import { Const } from "../utils/const";
 
 export default {
-  name: "Home",
+  name: "Business",
   data() {
     return {};
   },
   components: {
     Header,
-    Footer
+    Footer,
+    BusinessSection
   },
   methods: {}
 };

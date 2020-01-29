@@ -5,7 +5,18 @@ import Business from '@/views/Business'
 import News from '@/views/News'
 import Admin from '@/views/Admin'
 import Company from '@/views/Company'
-// import HelloWorld from '@/components/HelloWorld'
+
+import Anquanpinggu from "@/components/Anquanpinggu";
+import Huanbaogongcheng from "@/components/Huanbaogongcheng";
+import Huanbaoguanjia from "@/components/Huanbaoguanjia";
+import Huanping from "@/components/Huanping";
+import Jungongyanshou from "@/components/Jungongyanshou";
+import Keyan from "@/components/Keyan";
+import Shuitubaochisheshi from "@/components/Shuitubaochisheshi";
+import Yingjiyuan from "@/components/Yingjiyuan";
+import Paiwuxuke from "@/components/Paiwuxuke";
+import Shuitubaochi from "@/components/Shuitubaochi";
+
 
 //规避路由报错问题
 const originalPush = Router.prototype.push
@@ -25,7 +36,40 @@ export default new Router({
     }, {
       path: '/business',
       name: 'business',
-      component: Business
+      component: Business,
+      children: [
+        {
+          path: 'anquanpinggu',
+          component: Anquanpinggu
+        }, {
+          path: 'huanbaogongcheng',
+          component: Huanbaogongcheng
+        }, {
+          path: 'huanbaoguanjia',
+          component: Huanbaoguanjia
+        }, {
+          path: 'huanping',
+          component: Huanping
+        }, {
+          path: 'jungongyanshou',
+          component: Jungongyanshou
+        }, {
+          path: 'keyan',
+          component: Keyan
+        }, {
+          path: 'shuitubaochisheshi',
+          component: Shuitubaochisheshi
+        }, {
+          path: 'yingjiyuan',
+          component: Yingjiyuan
+        }, {
+          path: 'paiwuxuke',
+          component: Paiwuxuke
+        }, {
+          path: 'shuitubaochi',
+          component: Shuitubaochi
+        },
+      ]
     }, {
       path: '/company',
       name: 'company',
@@ -39,7 +83,7 @@ export default new Router({
       name: 'admin',
       component: Admin
     }, {
-      path: '**',
+      path: '*',
       redirect: '/'
     }
   ]

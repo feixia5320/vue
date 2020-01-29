@@ -3,7 +3,7 @@
     <Header></Header>
     <!-- 路由插槽 -->
     <router-view />
-    <p>jdsjlfkj</p>
+    <p>admin</p>
     <Footer></Footer>
   </div>
 </template>
@@ -13,7 +13,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 export default {
-  name: "Home",
+  name: "Admin",
   data() {
     return {};
   },
