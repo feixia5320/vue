@@ -6,6 +6,8 @@ Vue.use(Vuex);
 export default new Vuex.Store({
     state: {
         navState: '/',
+        userName: '',
+
         count: 0,
         msg: "vuex",
         test: "test",
@@ -30,11 +32,13 @@ export default new Vuex.Store({
     mutations: {
         updateState(state, val) {
             state.navState = val;
-            console.log("navState", val)
         },
+        updateUserInfo(state, val) {
+            state.userName = val
+        },
+        
         increment(state, payload) {
             state.count += payload.num;
-            console.log("param", payload.num)
         }
     }
 })

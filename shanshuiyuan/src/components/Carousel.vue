@@ -29,8 +29,8 @@
   </div>
 </template>
 
-
 <script>
+import { Const } from "../utils/const";
 export default {
   name: "Carousel",
   data() {
@@ -38,18 +38,14 @@ export default {
       intervalFlag: "",
       currentIndex: 0,
       showNextBtn: false,
-      list: [
-        require("../assets/1.jpg"),
-        require("../assets/2.jpg"),
-        require("../assets/3.jpg")
-      ]
+      list: Const.carousel
     };
   },
   methods: {
     play() {
       this.intervalFlag = setInterval(() => {
         this.currentIndex++;
-        if (this.currentIndex == 3) {
+        if (this.currentIndex == this.list.length) {
           this.currentIndex = 0;
         }
       }, 2000);

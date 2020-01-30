@@ -6,8 +6,10 @@
       </el-header>
       <el-main>
         <Carousel></Carousel>
-        <h2 style="width: 120px;margin: 10px auto">业务版块</h2>
+        <h2 class="title">业务版块</h2>
         <BusinessSection></BusinessSection>
+        <h2 class="title">news</h2>
+        <NewsSection style="width: 70%;margin: 0 auto"></NewsSection>
         <!-- 路由插槽 -->
         <router-view />
       </el-main>
@@ -23,6 +25,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer"
 import Carousel from "../components/Carousel";
 import BusinessSection from "../components/BusinessSection";
+import NewsSection from "../components/NewsSection";
 
 export default {
   name: "Home",
@@ -34,6 +37,7 @@ export default {
     Footer,
     Carousel,
     BusinessSection,
+    NewsSection,
   },
   methods: {}
 };
@@ -41,4 +45,8 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.title {
+  width: 120px;
+  margin: 10px auto
+}
 </style>

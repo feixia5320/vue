@@ -1,4 +1,11 @@
 export class Const {
+    static carousel = [
+        require("../assets/1.jpg"),
+        require("../assets/2.jpg"),
+        require("../assets/3.jpg"),
+        require("../assets/4.jpg"),
+        require("../assets/5.jpg"),
+    ]
     static footer = [
         {
             title: '关于我们',
@@ -79,6 +86,22 @@ export class Const {
             url: require('../assets/bus1.png')
         },
 
+    ]
+
+    static news = [
+        {
+            title: "标题",
+            date: '2019-10-02',
+            url: "https://element.eleme.cn/#/zh-CN/component/layout",
+        },{
+            title: "标题",
+            date: '2019-10-02',
+            url: "",
+        },{
+            title: "标题",
+            date: '2019-10-02',
+            url: "",
+        }
     ]
 
 }

@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home'
+import Login from '@/views/Login'
 import Business from '@/views/Business'
 import News from '@/views/News'
 import Admin from '@/views/Admin'
@@ -34,6 +35,10 @@ export default new Router({
       name: 'home',
       component: Home
     }, {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },{
       path: '/business',
       name: 'business',
       component: Business,
