@@ -1,8 +1,5 @@
 <template>
   <div style="width: 100%">
-    <div class="icon" v-if="showdelete">
-      <i class="el-icon-refresh" @click="refresh()"></i>
-    </div>
     <div v-for="(items, index) in newsList" :key="index" class="contain">
       <el-row class="news-row">
         <el-col :span="16" class="content">
@@ -10,9 +7,6 @@
         </el-col>
         <el-col :span="5" class="date">
           <span>{{items.date}}</span>
-        </el-col>
-        <el-col :span="3" v-if="showdelete">
-          <el-link type="danger" @click="deleteConfirm(items)">删除</el-link>
         </el-col>
       </el-row>
     </div>
@@ -30,65 +24,36 @@ export default {
       newsList: []
     };
   },
-  props: ["showdelete"],
   methods: {
     getNews(showMsg) {
-      axios.get("/news/getnews").then(response => {
-        let res = response.data;
-        if (res.status == "0") {
-          this.newsList = res.result;
-          if (showMsg) {
-            this.$message({
-              message: "获取成功！",
-              type: "success"
-            });
-          }
-        } else {
-          if (showMsg) {
-            this.$message({
-              message: "获取失败！",
-              type: "error"
-            });
-          }
-        }
-      });
-    },
-    refresh() {
-      this.getNews(true);
-    },
-    deleteConfirm(items) {
-      this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }).then(() => {
-          this.deleteNews(items);
-        }).catch(() => {
-                    
-        });
-    },
-    deleteNews(items) {
+      let curentPage = 1;
+      let sortFeild = 'date';
+      let sort = -1;
       axios
-        .get("/news/deletenews", {
+        .get("/news/getnews", {
           params: {
-            title: items.title
+            curentPage: curentPage,
+            pageSize: 10,
+            sortFeild: sortFeild,
+            sort: sort
           }
         })
         .then(response => {
           let res = response.data;
           if (res.status == "0") {
-            this.$message({
-              message: "删除成功！",
-              type: "success"
-            });
-            this.getNews(false);
+            this.newsList = res.result.list.slice(0, 5);
           } else {
-            this.$message({
-              message: "删除失败！",
-              type: "error"
-            });
+            if (showMsg) {
+              this.$message({
+                message: "获取失败！",
+                type: "error"
+              });
+            }
           }
         });
+    },
+    refresh() {
+      this.getNews();
     }
   },
   mounted() {
