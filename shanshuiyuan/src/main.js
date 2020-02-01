@@ -8,6 +8,9 @@ import store from './store'
 import axios from 'axios'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
+import echarts from 'echarts'
+ //将echarts引入到vue的原型中
+ Vue.prototype.$echarts = echarts
 
 Vue.use(Vuex);
 Vue.use(ElementUI);

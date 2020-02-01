@@ -63,6 +63,9 @@
             </el-form-item>
           </el-form>
         </el-tab-pane>
+        <el-tab-pane label="访问量" name="visit">
+          <div id="myChart" class="echartBox" :style="{width: '90%', height: '400px'}"></div>
+        </el-tab-pane>
       </el-tabs>
     </div>
     <Footer></Footer>
@@ -93,8 +96,8 @@ export default {
         total: 20
       },
       sort: {
-        sortFeild: 'date',
-        sort: -1,
+        sortFeild: "date",
+        sort: -1
       },
       ruleForm: {
         title: "",
@@ -138,7 +141,7 @@ export default {
       let sort = e.order == "ascending" ? 1 : -1;
       this.sort.sortFeild = sortFeild;
       this.sort.sort = sort;
-     
+
       this.getNews();
     },
     changePage(curentPage) {
@@ -266,11 +269,59 @@ export default {
             });
           }
         });
+    },
+    getVisitNum() {
+      axios
+        .get("/ip/getVisitNum").then(response => {
+          let res = response.data;
+          if (res.status == "0") {
+            let obj = {
+              xList: res.result.dateList,
+              yList: res.result.countList,
+            }
+            this.drawLine(obj);
+          }
+        });
+    },
+    drawLine(item) {
+      // 基于准备好的dom，初始化echarts实例
+      let myChart = this.$echarts.init(document.getElementById("myChart"));
+
+      let option = {
+        title: {
+          text: "网站访问量统计表"
+        },
+        tooltip: {
+          trigger: "axis"
+        },
+        // legend: {
+        //   data: ["邮件营销", "联盟广告"]
+        // },
+        xAxis: {
+          type: "category",
+          boundaryGap: false,
+          data: item.xList
+        },
+        yAxis: {
+          type: "value"
+        },
+        series: [
+          {
+            name: "邮件营销",
+            type: "line",
+            smooth: true,
+            data: item.yList
+          }
+        ]
+      };
+
+      myChart.setOption(option, (window.onresize = myChart.resize));
     }
   },
   mounted() {
     this.getNews();
     this.checkLogin();
+    this.getVisitNum();
   }
 };
 </script>
