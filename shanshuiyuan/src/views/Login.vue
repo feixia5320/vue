@@ -32,7 +32,6 @@
 <script>
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import axios from "axios";
 
 export default {
   name: "Login",
@@ -72,7 +71,7 @@ export default {
   components: {},
   methods: {
     checkLogin() {
-      axios.get("/users/checkLogin").then(response => {
+      this.$axios.get("/users/checkLogin").then(response => {
         let res = response.data;
         let path = this.$route.pathname;
         if (res.status == "0") {
@@ -95,7 +94,7 @@ export default {
       });
     },
     login() {
-      axios
+      this.$axios
         .post("/users/login", {
           userName: this.ruleForm.userName,
           userPwd: this.ruleForm.pass
@@ -112,7 +111,7 @@ export default {
         });
     },
     logout() {
-      axios.post("/users/logout").then(response => {
+      this.$axios.post("/users/logout").then(response => {
         let res = response.data;
         if (res.status == "0") {
           this.$store.commit("updateUserInfo", res.result.userName);

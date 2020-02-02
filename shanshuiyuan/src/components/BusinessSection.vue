@@ -1,5 +1,6 @@
 <template>
   <div class="contain">
+    <div class="test">132</div>
     <div v-for="(items,index) in list" :key="index" class="item" @click="clickBus(items)">
       <img :src="items.url" alt />
       <br />
@@ -15,13 +16,13 @@ export default {
   name: "BusinessSection",
   data() {
     return {
-      list: Const.businessList,
+      list: Const.businessList
     };
   },
   methods: {
     clickBus(items) {
-      this.$store.commit('updateState', '/business');
-      this.$router.push('/business/' + items.state)
+      this.$store.commit("updateState", "/business");
+      this.$router.push("/business/" + items.state);
     }
   }
 };
@@ -29,6 +30,14 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.test {
+  width: 100px;
+  height: 100px;
+  border: 1px solid;
+  background-image: url("../assets/icons.png");
+  background-repeat: no-repeat;
+  background-position: -113px 0px;
+}
 .contain {
   width: 90%;
   height: 300px;

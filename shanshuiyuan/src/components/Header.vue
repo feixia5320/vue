@@ -20,7 +20,7 @@
       <el-menu-item index="/business">{{i18n.home_nav_business}}</el-menu-item>
       <el-menu-item index="/news">{{i18n.home_nav_news}}</el-menu-item>
       <el-menu-item index="/about">{{i18n.home_nav_aboutus}}</el-menu-item>
-      <el-menu-item index="/admin">{{i18n.home_nav_admin}}</el-menu-item>
+      <el-menu-item index="/admin/newslist">{{i18n.home_nav_admin}}</el-menu-item>
     </el-menu>
   </div>
 </template>

@@ -7,16 +7,21 @@ import News from '@/views/News'
 import Admin from '@/views/Admin'
 import Company from '@/views/Company'
 
-import Anquanpinggu from "@/components/Anquanpinggu";
-import Huanbaogongcheng from "@/components/Huanbaogongcheng";
-import Huanbaoguanjia from "@/components/Huanbaoguanjia";
-import Huanping from "@/components/Huanping";
-import Jungongyanshou from "@/components/Jungongyanshou";
-import Keyan from "@/components/Keyan";
-import Shuitubaochisheshi from "@/components/Shuitubaochisheshi";
-import Yingjiyuan from "@/components/Yingjiyuan";
-import Paiwuxuke from "@/components/Paiwuxuke";
-import Shuitubaochi from "@/components/Shuitubaochi";
+import Anquanpinggu from "@/components/business/Anquanpinggu";
+import Huanbaogongcheng from "@/components/business/Huanbaogongcheng";
+import Huanbaoguanjia from "@/components/business/Huanbaoguanjia";
+import Huanping from "@/components/business/Huanping";
+import Jungongyanshou from "@/components/business/Jungongyanshou";
+import Keyan from "@/components/business/Keyan";
+import Shuitubaochisheshi from "@/components/business/Shuitubaochisheshi";
+import Yingjiyuan from "@/components/business/Yingjiyuan";
+import Paiwuxuke from "@/components/business/Paiwuxuke";
+import Shuitubaochi from "@/components/business/Shuitubaochi";
+
+import Newslist from "@/components/admin/Newslist";
+import Uploadfile from "@/components/admin/Uploadfile";
+import Uploadnews from "@/components/admin/Uploadnews";
+import Visit from "@/components/admin/Visit";
 
 
 //规避路由报错问题
@@ -38,7 +43,7 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: Login
-    },{
+    }, {
       path: '/business',
       name: 'business',
       component: Business,
@@ -86,7 +91,25 @@ export default new Router({
     }, {
       path: '/admin',
       name: 'admin',
-      component: Admin
+      component: Admin,
+      children: [
+        {
+          path: "",
+          component: Newslist
+        }, {
+          path: "newslist",
+          component: Newslist
+        }, {
+          path: "uploadfile",
+          component: Uploadfile
+        }, {
+          path: "uploadnews",
+          component: Uploadnews
+        }, {
+          path: "visit",
+          component: Visit
+        },
+      ]
     }, {
       path: '*',
       redirect: '/'

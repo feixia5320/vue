@@ -15,7 +15,6 @@
 
 <script>
 import { Const } from "../utils/const";
-import axios from "axios";
 
 export default {
   name: "NewsSection",
@@ -29,7 +28,7 @@ export default {
       let curentPage = 1;
       let sortFeild = 'date';
       let sort = -1;
-      axios
+      this.$axios
         .get("/news/getnews", {
           params: {
             curentPage: curentPage,
