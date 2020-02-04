@@ -1,3 +1,4 @@
+import {lan_zh} from "../i18n/zh"
 export class Const {
     static carousel = [
         require("../assets/1.jpg"),
@@ -102,6 +103,22 @@ export class Const {
             date: '2019-10-02',
             url: "",
         }
+    ]
+
+    static joinus= [
+        {
+            val: lan_zh.lan.info_componey,
+            url: require("../assets/join_goo.png")
+        },{
+            val: lan_zh.lan.info_componey,
+            url: require("../assets/join_ser.png")
+        },{
+            val: lan_zh.lan.info_phone,
+            url: require("../assets/join_phone.png")
+        },{
+            val: lan_zh.lan.info_email,
+            url: require("../assets/join_mail.png")
+        },
     ]
 
 }

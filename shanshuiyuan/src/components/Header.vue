@@ -11,16 +11,18 @@
       @select="handleSelect"
     >
       <el-menu-item index="/">{{i18n.home_nav_homepage}}</el-menu-item>
-      <el-submenu index="/company">
+      <el-menu-item index="/company">{{i18n.home_nav_company}}</el-menu-item>
+      <!-- <el-submenu index="/company">
         <template slot="title">{{i18n.home_nav_company}}</template>
         <el-menu-item index="2-1">选项1</el-menu-item>
         <el-menu-item index="2-2">选项2</el-menu-item>
         <el-menu-item index="2-3">选项3</el-menu-item>
-      </el-submenu>
-      <el-menu-item index="/business">{{i18n.home_nav_business}}</el-menu-item>
+      </el-submenu> -->
+      <el-menu-item index="/business/huanping">{{i18n.home_nav_business}}</el-menu-item>
       <el-menu-item index="/news">{{i18n.home_nav_news}}</el-menu-item>
-      <el-menu-item index="/about">{{i18n.home_nav_aboutus}}</el-menu-item>
+      <el-menu-item index="/notice">{{i18n.home_nav_notice}}</el-menu-item>
       <el-menu-item index="/admin/newslist">{{i18n.home_nav_admin}}</el-menu-item>
+      <el-menu-item index="/joinus">{{i18n.home_nav_joinus}}</el-menu-item>
     </el-menu>
   </div>
 </template>

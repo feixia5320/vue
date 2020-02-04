@@ -3,7 +3,7 @@
     <Header></Header>
     <!-- 路由插槽 -->
     <router-view />
-    <Newslist :isadmin="false"></Newslist>
+    <Filelist ref="filelistModel" :isadmin="false"></Filelist>
     <Footer></Footer>
   </div>
 </template>
@@ -11,17 +11,17 @@
 <script>
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Newslist from "../components/admin/Newslist";
+import Filelist from "../components/admin/Filelist";
 
 export default {
-  name: "News",
+  name: "Notice",
   data() {
     return {};
   },
   components: {
     Header,
     Footer,
-    Newslist
+    Filelist
   },
   methods: {}
 };

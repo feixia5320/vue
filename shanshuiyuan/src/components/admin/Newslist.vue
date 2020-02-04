@@ -10,11 +10,11 @@
       @sort-change="sortChange"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection" width="55"></el-table-column>
-      <el-table-column prop="date" label="日期" width="100" sortable="custom"></el-table-column>
+      <el-table-column v-if="isadmin" type="selection" width="55"></el-table-column>
+      <el-table-column prop="date" label="日期" width="150" sortable="custom"></el-table-column>
       <el-table-column prop="title" label="标题" sortable="custom" show-overflow-tooltip></el-table-column>
-      <el-table-column prop="url" label="链接" sortable="custom" show-overflow-tooltip></el-table-column>
-      <el-table-column label="操作" width="80">
+      <el-table-column v-if="isadmin" prop="url" label="链接" sortable="custom" show-overflow-tooltip></el-table-column>
+      <el-table-column v-if="isadmin" label="操作" width="80">
         <template slot-scope="scope">
           <el-link type="danger" @click="deleteConfirm(scope.row)">删除</el-link>
         </template>
@@ -47,6 +47,15 @@ export default {
         sort: -1
       }
     };
+  },
+  props: {
+    isadmin: {
+      type: Boolean,
+      // 对象或数组默认值必须从一个工厂函数获取
+      default: function () {
+        return true
+      }
+    },
   },
   methods: {
     handleSelectionChange(val) {

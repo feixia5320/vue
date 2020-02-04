@@ -11,7 +11,7 @@
     >
       <el-button size="small" type="primary">点击上传</el-button>
     </el-upload>
-    <Filelist ref="filelistModel"></Filelist>
+    <Filelist ref="filelistModel" :isadmin="true"></Filelist>
   </div>
 </template>
 
@@ -24,22 +24,21 @@ export default {
   },
   data() {
     return {
-      fileList: [],
+      fileList: []
     };
   },
+  
   methods: {
-    uploadSuccess(response, file, fileList){
+    uploadSuccess(response, file, fileList) {
       this.$refs.filelistModel.getFilelist();
       this.$refs.upload.clearFiles();
     },
     //校验规则
     beforeUpload(file) {
       console.log("ste");
-    },
-
+    }
   },
-  mounted() {
-  }
+  mounted() {}
 };
 </script>
 

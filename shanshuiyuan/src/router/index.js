@@ -6,6 +6,8 @@ import Business from '@/views/Business'
 import News from '@/views/News'
 import Admin from '@/views/Admin'
 import Company from '@/views/Company'
+import Notice from '@/views/Notice'
+import Joinus from '@/views/Joinus'
 
 import Anquanpinggu from "@/components/business/Anquanpinggu";
 import Huanbaogongcheng from "@/components/business/Huanbaogongcheng";
@@ -89,6 +91,10 @@ export default new Router({
       name: 'news',
       component: News
     }, {
+      path: '/notice',
+      name: 'notice',
+      component: Notice
+    }, {
       path: '/admin',
       name: 'admin',
       component: Admin,
@@ -110,6 +116,10 @@ export default new Router({
           component: Visit
         },
       ]
+    },{
+      path: '/joinus',
+      name: 'Joinus',
+      component: Joinus
     }, {
       path: '*',
       redirect: '/'

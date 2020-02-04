@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="view-contain">
     <el-container>
       <el-header>
         <Header></Header>

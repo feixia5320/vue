@@ -1,6 +1,6 @@
 
 <template>
-  <div style="width: 99%">
+  <div class="view-contain">
     <Header></Header>
     <div class="user-info">
       <span>用户名：{{userName}}</span>
@@ -85,7 +85,6 @@ export default {
   watch: {
     '$route' (to, from) {
       this.activeName = to.path.split('/admin/')[1];
-      console.log('to', to)
     }
   }
 

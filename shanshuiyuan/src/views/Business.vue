@@ -1,5 +1,5 @@
 <template>
-  <div style="width: 98%; margin:0 auto">
+  <div class="view-contain">
     <Header></Header>
     <BusinessSection></BusinessSection>
     <!-- 路由插槽 -->

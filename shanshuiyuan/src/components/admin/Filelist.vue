@@ -10,13 +10,13 @@
       @sort-change="sortChange"
       @selection-change="handleSelectionChange"
     >
-      <el-table-column type="selection" width="55"></el-table-column>
+      <el-table-column v-if="isadmin" type="selection" width="55"></el-table-column>
       <el-table-column prop="date" label="日期" width="100" sortable="custom"></el-table-column>
       <el-table-column prop="fileName" label="文件名称" sortable="custom" show-overflow-tooltip></el-table-column>
       <el-table-column label="操作" width="150">
         <template slot-scope="scope">
           <el-link type="danger" style="margin-right: 10px" @click="download(scope.row)">下载</el-link>
-          <el-link type="danger" @click="deleteConfirm(scope.row)">删除</el-link>
+          <el-link type="danger" v-if="isadmin" @click="deleteConfirm(scope.row)">删除</el-link>
         </template>
       </el-table-column>
     </el-table>
@@ -47,6 +47,15 @@ export default {
         sort: -1
       }
     };
+  },
+  props: {
+    isadmin: {
+      type: Boolean,
+      // 对象或数组默认值必须从一个工厂函数获取
+      default: function() {
+        return true;
+      }
+    }
   },
   methods: {
     handleSelectionChange(val) {
