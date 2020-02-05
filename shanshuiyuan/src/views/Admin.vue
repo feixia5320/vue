@@ -12,7 +12,8 @@
         <el-tab-pane label="新闻列表" name="newslist"></el-tab-pane>
         <el-tab-pane label="上传新闻" name="uploadnews"></el-tab-pane>
         <el-tab-pane label="访问量" name="visit"></el-tab-pane>
-        <el-tab-pane label="上传下载" name="uploadfile"></el-tab-pane>
+        <el-tab-pane label="公司动态" name="activelist"></el-tab-pane>
+        <el-tab-pane label="上传动态" name="active"></el-tab-pane>
       </el-tabs>
       <!-- 路由插槽 -->
       <router-view />
@@ -100,7 +101,7 @@ export default {
 }
 .tabs {
   height: 60px;
-  width: 30%;
+  width: 40%;
   margin: 0 auto;
   overflow: auto;
 }

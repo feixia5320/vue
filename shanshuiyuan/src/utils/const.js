@@ -1,5 +1,6 @@
 import {lan_zh} from "../i18n/zh"
 export class Const {
+    static proxyImg = "http://localhost:3000/uploads/";
     static carousel = [
         require("../assets/1.jpg"),
         require("../assets/2.jpg"),
@@ -109,9 +110,6 @@ export class Const {
         {
             val: lan_zh.lan.info_componey,
             url: require("../assets/join_goo.png")
-        },{
-            val: lan_zh.lan.info_componey,
-            url: require("../assets/join_ser.png")
         },{
             val: lan_zh.lan.info_phone,
             url: require("../assets/join_phone.png")

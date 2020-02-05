@@ -12,11 +12,23 @@
     >
       <el-table-column v-if="isadmin" type="selection" width="55"></el-table-column>
       <el-table-column prop="date" label="日期" width="100" sortable="custom"></el-table-column>
-      <el-table-column prop="fileName" label="文件名称" sortable="custom" show-overflow-tooltip></el-table-column>
-      <el-table-column label="操作" width="150">
+      <el-table-column label="活动名称" sortable="custom" show-overflow-tooltip>
         <template slot-scope="scope">
-          <el-link type="danger" style="margin-right: 10px" @click="download(scope.row)">下载</el-link>
-          <el-link type="danger" v-if="isadmin" @click="deleteConfirm(scope.row)">删除</el-link>
+          <span
+            @click="activeDetail(scope.row)"
+            style="text-decoration: underline;cursor: pointer;"
+          >{{scope.row.title}}</span>
+        </template>
+      </el-table-column>
+      <el-table-column v-if="isadmin" label="操作" width="150">
+        <template slot-scope="scope">
+          <el-link
+            type="danger"
+            v-if="false"
+            style="margin-right: 10px"
+            @click="download(scope.row)"
+          >下载</el-link>
+          <el-link type="danger" @click="deleteConfirm(scope.row)">删除</el-link>
         </template>
       </el-table-column>
     </el-table>
@@ -33,7 +45,7 @@
 
 <script>
 export default {
-  name: "Filelist",
+  name: "Activelist",
   data() {
     return {
       fileList: [],
@@ -61,12 +73,12 @@ export default {
     handleSelectionChange(val) {
       this.multipleSelection = val;
     },
-    getFilelist() {
+    getActiveList() {
       let curentPage = this.page.curentPage;
       let sortFeild = this.sort.sortFeild;
       let sort = this.sort.sort;
       this.$axios
-        .get("/ip/getFilelist", {
+        .get("/ip/getActiveList", {
           params: {
             curentPage: curentPage,
             pageSize: 10,
@@ -125,19 +137,39 @@ export default {
       };
       document.body.appendChild(iframe);
     },
-    deleteConfirm(items) {
+    deleteConfirm(item) {
       this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
         confirmButtonText: "确定",
         cancelButtonText: "取消",
         type: "warning"
       })
         .then(() => {
-          this.deleteFile(items);
+          let content = JSON.parse(item.content);
+          for (let i in content) {
+            if (content[i].type == "img") {
+              this.deleteFile(content[i].val);
+            }
+          }
+          this.deleteActive(item.id);
         })
         .catch(() => {});
     },
-    deleteFile(item) {
-      let fileId = item.fileId;
+    deleteActive(id) {
+      this.$axios
+        .get("/ip/deleteActive", {
+          params: {
+            id: id
+          }
+        })
+        .then(response => {
+          let res = response.data;
+          if (res.status == "0") {
+            console.log("deleteActive");
+            this.getActiveList();
+          }
+        });
+    },
+    deleteFile(fileId) {
       this.$axios
         .get("/ip/deleteFile", {
           params: {
@@ -147,7 +179,7 @@ export default {
         .then(response => {
           let res = response.data;
           if (res.status == "0") {
-            this.getFilelist();
+            console.log("deleteFile");
           }
         });
     },
@@ -157,15 +189,18 @@ export default {
       this.sort.sortFeild = sortFeild;
       this.sort.sort = sort;
 
-      this.getFilelist();
+      this.getActiveList();
     },
     changePage(curentPage) {
       this.page.curentPage = curentPage;
-      this.getFilelist();
+      this.getActiveList();
+    },
+    activeDetail(item) {
+      this.$router.push("/activedetail/" + item.id);
     }
   },
   mounted() {
-    this.getFilelist();
+    this.getActiveList();
   }
 };
 </script>

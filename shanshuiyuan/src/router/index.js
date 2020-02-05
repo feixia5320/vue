@@ -21,10 +21,11 @@ import Paiwuxuke from "@/components/business/Paiwuxuke";
 import Shuitubaochi from "@/components/business/Shuitubaochi";
 
 import Newslist from "@/components/admin/Newslist";
-import Uploadfile from "@/components/admin/Uploadfile";
 import Uploadnews from "@/components/admin/Uploadnews";
 import Visit from "@/components/admin/Visit";
-
+import Activelist from "@/components/admin/Activelist";
+import Uploadactive from "@/components/admin/Uploadactive";
+import Activedetail from "@/components/admin/Activedetail";
 
 //规避路由报错问题
 const originalPush = Router.prototype.push
@@ -106,20 +107,27 @@ export default new Router({
           path: "newslist",
           component: Newslist
         }, {
-          path: "uploadfile",
-          component: Uploadfile
+          path: "activelist",
+          component: Activelist
         }, {
           path: "uploadnews",
           component: Uploadnews
         }, {
           path: "visit",
           component: Visit
+        }, {
+          path: "active",
+          component: Uploadactive
         },
       ]
-    },{
+    }, {
       path: '/joinus',
       name: 'Joinus',
       component: Joinus
+    }, {
+      path: '/activedetail/:id',
+      name: 'activedetail',
+      component: Activedetail
     }, {
       path: '*',
       redirect: '/'

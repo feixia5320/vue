@@ -6,7 +6,17 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  watch: {
+    '$route' (to, from) {
+      let arr = to.path.split("/");
+      let key = "/" + arr[1];
+      if('activedetail' == arr[1]){
+        key = "/notice";
+      }
+      this.$store.commit("updateState", key);
+    }
+  }
 }
 </script>
 
@@ -38,5 +48,8 @@ export default {
 .detail-contain ol {
   text-align: left;
   line-height: 30px;
+}
+.detail-contain img {
+  width: 70%;
 }
 </style>

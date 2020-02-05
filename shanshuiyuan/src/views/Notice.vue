@@ -1,9 +1,9 @@
 <template>
   <div class="view-contain">
     <Header></Header>
+    <Activelist :isadmin="false"></Activelist>
     <!-- 路由插槽 -->
     <router-view />
-    <Filelist ref="filelistModel" :isadmin="false"></Filelist>
     <Footer></Footer>
   </div>
 </template>
@@ -11,7 +11,7 @@
 <script>
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Filelist from "../components/admin/Filelist";
+import Activelist from "../components/admin/Activelist"
 
 export default {
   name: "Notice",
@@ -21,7 +21,7 @@ export default {
   components: {
     Header,
     Footer,
-    Filelist
+    Activelist
   },
   methods: {}
 };
