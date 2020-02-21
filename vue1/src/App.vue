@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <div>
-      <el-button v-for="(item, index) in navList" v-bind:key="index" type="primary" @click="gotoNav($event, index)">{{item}}</el-button>
+      <el-button v-for="(item, index) in navList" v-bind:key="index" type="primary" 
+        @click="gotoNav($event, index)">{{item}}</el-button>
     </div>
     <el-container>
       <el-header>
@@ -70,7 +71,7 @@ export default {
     return {
       msg: "nav vue",
       // 导航按钮
-      navList: ["helloworld", "test", "prop", "layout", "nav"],
+      navList: ["helloworld", "test", "prop", "layout", "nav", "moment"],
       items: [
         {
           key: 1,
@@ -132,7 +133,6 @@ export default {
 .el-main {
   background-color: #e9eef3;
   color: #333;
-  text-align: center;
 }
 
 body > .el-container {

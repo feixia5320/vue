@@ -6,6 +6,7 @@ import Prop from "@/components/Prop";
 import Slot from "@/components/Slot";
 import nav from "@/components/nav";
 import e_layout from "@/components/e_layout";
+import moment from "@/components/moment-time";
 
 Vue.use(Router)
 
@@ -15,37 +16,35 @@ export default new Router({
       path: '/',
       name: 'HelloWorld',
       component: HelloWorld
-    },
-    {
+    }, {
       path: '/helloworld',
       name: 'HelloWorld',
       component: HelloWorld
-    },
-    {
+    }, {
       path: '/test',
       name: 'Test1',
       component: Test1
-    },
-    {
+    }, {
       path: '/prop',
       name: 'Prop',
       component: Prop
-    },
-    {
+    }, {
       path: '/slot',
       name: 'Slot',
       component: Slot
-    },
-    {
+    }, {
       path: '/layout',
       name: 'e_layout',
       component: e_layout
-    },
-    {
+    }, {
       path: '/nav',
       name: 'nav',
       component: nav
+    }, {
+      path: '/moment',
+      name: 'moment',
+      component: moment
     }
-    
+
   ]
 })
