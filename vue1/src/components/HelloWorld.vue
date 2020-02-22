@@ -28,7 +28,6 @@ export default {
   },
   methods:{
     eventchange: function (params) {
-      console.log(params);
     }
   }
 }

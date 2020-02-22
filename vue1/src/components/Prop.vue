@@ -40,7 +40,6 @@ export default {
     getdata: function(){
        axios.get("/rest/vnf")
        .then( (res) =>{
-         console.log(res)
        })
 
        this.$axios.get("sdf")

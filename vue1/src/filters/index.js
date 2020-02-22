@@ -1,12 +1,5 @@
-import moment from 'moment'
+import {dateFormat} from './moment'
+import { formatMoney } from "./money";
 
-export function dateFormat(daraStr, pattern = 'YYYY-MM-DD HH:mm:ss') {
-    return moment(daraStr).format(pattern);
-}
 
-export function formatMoney(value) {
-    if (value) {
-        value = Number(value);
-        return '￥ ' + value.toFixed(2);
-    }
-};
+export {dateFormat, formatMoney};
