@@ -1,18 +1,15 @@
 <template>
   <div class="foot-contain">
     <el-row :gutter="20">
-      <el-col :span="14">
-        <ul class="list-contain">
-          <li v-for="(item, index) in footer" :key="index">
-            {{item.title}}
-            <div style="margin-top: 20px"></div>
-            <div v-for="(oo, index ) in item.list" :key="index" class="link">
-              <a :href="oo.url">{{oo.name}}</a>
-            </div>
-          </li>
-        </ul>
+      <el-col :span="17">
+        <h4 class="link-title">相关链接:</h4>
+        <div class="link-urls-contain">
+          <span class="item" v-for="(item, index) in footer" :key="index">
+            <a :href="item.url" target="_blank">{{item.name}}</a>
+          </span>
+        </div>
       </el-col>
-      <el-col :span="10">
+      <el-col :span="7">
         <div class="info-contain">
           <div>
             <img src="../assets/dc10.jpg" alt />
@@ -36,53 +33,52 @@ export default {
   data() {
     return {
       i18n: lan_zh.lan,
-      footer: Const.footer,
+      footer: Const.footerLinks
     };
   },
-  methods: {
-  },
+  methods: {},
   created() {}
 };
 </script>
 
 <style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
 .foot-contain {
-  background-color: #f6f6f6;
+  background-color: #f6f6f6ce;
 }
-.list-contain {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-}
-.list-contain li {
-  width: 100px;
+
+.link-title {
   text-align: left;
-  font-weight: bold;
+  margin: 10px;
 }
-.link {
-  font-weight: normal;
+.link-urls-contain {
+  padding: 10px;
+}
+.item {
+  display: inline-block;
+  width: 20%;
   text-align: left;
+  font-size: 14px;
+  line-height: 23px;
 }
+.item a {
+  color: #888;
+  text-decoration: none;
+}
+.item a:hover {
+  color: rgb(71, 71, 238);
+  text-decoration: underline;
+}
+
 .info-contain {
   text-align: left;
+  margin-top: 10px;
 }
 .info-contain p {
   margin-top: -40px;
   margin-left: 90px;
 }
+.info-contain img {
+  width: 360px;
+}
+
 </style>

@@ -5,7 +5,8 @@
         <Header></Header>
       </el-header>
       <el-main>
-        <Carousel></Carousel>
+        <!-- <Carousel></Carousel> -->
+        <Lunbo></Lunbo>
         <h2 class="title">业务版块</h2>
         <BusinessSection></BusinessSection>
         <h2 class="title">news</h2>
@@ -24,6 +25,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer"
 import Carousel from "../components/Carousel";
+import Lunbo from "../components/lunbo";
 import BusinessSection from "../components/BusinessSection";
 import NewsSection from "../components/NewsSection";
 
@@ -38,6 +40,7 @@ export default {
     Carousel,
     BusinessSection,
     NewsSection,
+    Lunbo
   },
   methods: {}
 };
