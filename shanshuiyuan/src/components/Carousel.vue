@@ -2,7 +2,7 @@
   <div style="height: 420px">
     <div v-on:mouseover="stop()" v-on:mouseout="play()" class="app">
       <div>
-        <transition-group tag="ul" name="image">
+        <transition-group tag="ul" appear name="image">
           <li v-for="(items,index) in list" v-show="index===currentIndex" :key="items">
             <img :src="items" alt />
           </li>

@@ -49,43 +49,43 @@ export class Const {
         {
             title: '环境影响评价',
             state: 'huanping',
-            url: require('../assets/bus1.png')
+            url: require('../assets/bus_1.png')
         }, {
             title: '竣工环保验收',
             state: 'jungongyanshou',
-            url: require('../assets/bus1.png')
+            url: require('../assets/bus_2.png')
         }, {
             title: '环保管家',
             state: 'huanbaoguanjia',
-            url: require('../assets/bus1.png')
+            url: require('../assets/bus_3.png')
         }, {
             title: '排污许可',
             state: 'paiwuxuke',
-            url: require('../assets/bus1.png')
+            url: require('../assets/bus_4.png')
         }, {
             title: '水土保持方案',
             state: 'shuitubaochi',
-            url: require('../assets/bus1.png')
+            url: require('../assets/bus_5.png')
         }, {
             title: '水土保持设施验收',
             state: 'shuitubaochisheshi',
-            url: require('../assets/bus1.png')
+            url: require('../assets/bus_6.png')
         }, {
             title: '应急预案',
             state: 'yingjiyuan',
-            url: require('../assets/bus1.png')
+            url: require('../assets/bus_7.png')
         }, {
             title: '可行性研究报告',
             state: 'keyan',
-            url: require('../assets/bus1.png')
+            url: require('../assets/bus_8.png')
         },{
             title: '安全评估',
             state: 'anquanpinggu',
-            url: require('../assets/bus1.png')
+            url: require('../assets/bus_9.png')
         },{
             title: '环保工程',
             state: 'huanbaogongcheng',
-            url: require('../assets/bus1.png')
+            url: require('../assets/bus_10.png')
         },
 
     ]

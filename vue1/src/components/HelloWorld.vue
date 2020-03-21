@@ -2,8 +2,11 @@
   <div class="hello">
     <h1>title:{{ msg }}</h1>
 
-    <test>  </test>
-    <base-checkbox v-model="lovingVue" v-on:change='eventchange'></base-checkbox>
+    <test> </test>
+    <base-checkbox
+      v-model="lovingVue"
+      v-on:change="eventchange"
+    ></base-checkbox>
   </div>
 </template>
 
@@ -15,22 +18,19 @@ import test from "./Test1.vue";
 import prop from "./Prop.vue";
 
 export default {
-  name: 'HelloWorld',
-  components:{
+  name: "HelloWorld",
+  components: {
     test,
-    "base-checkbox":prop,
+    "base-checkbox": prop
   },
-  data () {
+  data() {
     return {
-      msg: 'hello world vue',
-      lovingVue:true
-    }
+      msg: "hello world vue",
+      lovingVue: true
+    };
   },
-  methods:{
-    eventchange: function (params) {
-    }
+  methods: {
+    eventchange: function(params) {}
   }
-}
+};
 </script>
-
-
