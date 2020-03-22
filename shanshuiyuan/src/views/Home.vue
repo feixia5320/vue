@@ -25,6 +25,7 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer"
 import Carousel from "../components/Carousel";
+import Lunbo from "../components/lunbo";
 import BusinessSection from "../components/BusinessSection";
 import NewsSection from "../components/NewsSection";
 import lunbo from "../components/lunbo"

@@ -1,5 +1,5 @@
 <template>
-  <div  class="view-contain">
+  <div class="view-contain">
     <Header></Header>
     <div class="detail-contain">
       <h3>公司简介</h3>
@@ -13,7 +13,7 @@
         我公司现有各类技术人员，形成了一支专业齐全、经验丰富、用于开拓的高素质人才队伍，为公司的整体良
         性发展提供了坚实的保障。
       </p>
-      <img src="../assets/company.jpg" alt style="width: 70%" />
+      <img src="../assets/company4.jpg" alt style="width: 70%" />
       <h3>业务范围</h3>
       <h4>Core Business</h4>
       <p>
