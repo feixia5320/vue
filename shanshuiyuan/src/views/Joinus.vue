@@ -45,13 +45,16 @@ export default {
 .row {
   text-align: left;
   height: 55px;
+  position: relative;
 }
 .row-span {
-  vertical-align: text-bottom;
-  line-height: 55px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 15px;
 }
 .phone2 {
   display: block;
-  margin-left: 55px;
+  margin-left: 65px;
 }
 </style>

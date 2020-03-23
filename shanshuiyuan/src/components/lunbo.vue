@@ -3,7 +3,7 @@
     <swiper :options="swiperOption" class="swiper">
       <swiper-slide class="swiperslide" v-for="(item,index) in list" :key="index">
         <div class="itemimg">
-          <img :src="item" width="100%" height="100%" />
+          <img :src="item.src" width="100%" height="100%" />
         </div>
       </swiper-slide>
     </swiper>

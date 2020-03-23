@@ -46,6 +46,7 @@ export default {
 }
 
 .itemnew img {
+  margin: 0 auto;
   display: block;
   width: 100px;
   height: 100px;
