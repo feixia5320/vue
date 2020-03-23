@@ -14,6 +14,11 @@ import echarts from 'echarts'
  //将echarts引入到vue的原型中
 Vue.prototype.$echarts = echarts
 
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+
+Vue.use(VueAwesomeSwiper) 
+
 Vue.use(Vuex);
 Vue.use(ElementUI);
 Vue.config.productionTip = false
