@@ -44,6 +44,7 @@
 </template>
 
 <script>
+import { NoticeLists } from "../../utils/demoData/testData";
 export default {
   name: "Activelist",
   data() {
@@ -197,9 +198,13 @@ export default {
     },
     activeDetail(item) {
       this.$router.push("/activedetail/" + item.id);
+    },
+    initData() {
+      this.fileList = NoticeLists;
     }
   },
   mounted() {
+    // this.initData();
     this.getActiveList();
   }
 };

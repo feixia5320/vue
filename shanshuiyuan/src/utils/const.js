@@ -153,24 +153,6 @@ export class Const {
     }
   ];
 
-  static news = [
-    {
-      title: "标题",
-      date: "2019-10-02",
-      url: "https://element.eleme.cn/#/zh-CN/component/layout"
-    },
-    {
-      title: "标题",
-      date: "2019-10-02",
-      url: ""
-    },
-    {
-      title: "标题",
-      date: "2019-10-02",
-      url: ""
-    }
-  ];
-
   static joinus = [
     {
       val: lan_zh.lan.info_componey,

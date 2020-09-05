@@ -3,6 +3,12 @@
     <el-button type="primary" @click="addItem('txt')">增加段落</el-button>
     <el-button type="primary" @click="addItem('img')">增加图片</el-button>
     <form>
+      <h4>日期</h4>
+      <el-date-picker
+        v-model="date"
+        type="date"
+        placeholder="选择日期">
+      </el-date-picker>
       <h4>活动名称</h4>
       <el-input v-model="title" class="row"></el-input>
       <h4>活动内容</h4>
@@ -40,6 +46,7 @@ export default {
   },
   data() {
     return {
+      date: '',
       title: "",
       list: [],
       curIndex: 0
@@ -95,7 +102,7 @@ export default {
     uploadForm() {
       let content = JSON.stringify(this.list);
       this.$axios
-        .post("/ip/addActive", { title: this.title, content: content })
+        .post("/ip/addActive", { title: this.title, content: content, date: this.date })
         .then(response => {
           let res = response.data;
           if (res.status == "0") {
