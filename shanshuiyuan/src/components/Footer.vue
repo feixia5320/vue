@@ -1,7 +1,7 @@
 <template>
   <div class="foot-contain">
     <el-row :gutter="20">
-      <el-col :span="17">
+      <el-col :span="16">
         <h4 class="link-title">相关链接:</h4>
         <div class="link-urls-contain">
           <span class="item" v-for="(item, index) in footer" :key="index">
@@ -9,20 +9,30 @@
           </span>
         </div>
       </el-col>
-      <el-col :span="7">
-        <div class="info-contain">
-          <div class="info-name">
+      <el-col :span="8">
+        <el-row>
+          <el-col :span="5">
             <img src="../assets/dc10.jpg" alt />
+          </el-col>
+          <el-col :span="15" class="text_align">
             <p>{{i18n.info_componey}}</p>
-          </div>
-          <div>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="5">
             <img src="../assets/dc11.jpg" alt />
-            <div class="info-phone">
+          </el-col>
+          <el-col :span="19" class="text_align">
+            <div class="info_phone">
               <p>{{i18n.info_phone}}</p>
               <p>{{i18n.info_phone2}}</p>
             </div>
-          </div>
-        </div>
+            <div class="info_img">
+              <img src="../assets/join_weixin_dan.jpg" alt="">
+              <img src="../assets/join_weixin_bo.jpg" alt="">
+            </div>
+          </el-col>
+        </el-row>
       </el-col>
     </el-row>
   </div>
@@ -71,23 +81,23 @@ export default {
   color: rgb(71, 71, 238);
   text-decoration: underline;
 }
-
-.info-contain {
+.text_align {
   text-align: left;
-  margin-top: 10px;
 }
-.info-name p {
-  margin-top: -40px;
-  margin-left: 90px;
+.margin-top p {
+  margin-top: 8px;
+
 }
-.info-phone{
-  margin-top: -50px;
-  margin-left: 90px;
+.info_phone {
+  margin-right: 16px;
+  display: inline-block;
+  vertical-align: top;
 }
-.info-phone p{
-  margin: 5px 0;
+.info_img {
+  display: inline-block;
+  width: 180px;
 }
-.info-contain img {
-  width: 360px;
+.info_img img {
+  width: 80px;
 }
 </style>

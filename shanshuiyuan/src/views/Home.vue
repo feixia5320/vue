@@ -9,7 +9,7 @@
         <Lunbo></Lunbo>
         <h2 class="title">业务版块</h2>
         <BusinessSection></BusinessSection>
-        <h2 class="title">news</h2>
+        <h2 class="title">热点新闻</h2>
         <NewsSection style="width: 70%;margin: 0 auto"></NewsSection>
         <!-- 路由插槽 -->
         <router-view />

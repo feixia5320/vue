@@ -2,11 +2,17 @@
   <div class="swiper-container">
     <div class="swiper-wrapper">
       <div v-for="(el,index) in list" class="swiper-slide" :key="index">
-        <img class="img" :src="el.src" />
+        <img style="width: 100%" class="img" :src="el.src" />
       </div>
     </div>
-    <!-- 如果需要分页器 -->
+    <!-- 分页器 -->
     <div class="swiper-pagination"></div>
+    <!-- 导航按钮 -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+
+    <!-- 滚动条 -->
+    <div class="swiper-scrollbar"></div>
   </div>
 </template>
 
@@ -30,7 +36,15 @@ export default {
       },
       direction: "horizontal" /*横向滑动*/,
       loop: true, //形成环路（即：可以从最后一张图跳转到第一张图
-      autoplay: 3000 /*每隔3秒自动播放*/
+      autoplay: true, /*每隔3秒自动播放*/
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      // 如果需要滚动条
+      scrollbar: {
+        el: '.swiper-scrollbar',
+      }, 
     });
   }
 };

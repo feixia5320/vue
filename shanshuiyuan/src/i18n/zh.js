@@ -7,7 +7,7 @@ export class lan_zh {
         home_nav_notice: "公示公告",
         home_nav_aboutus: "关于我们",
         home_nav_admin: "管理员",
-        home_nav_joinus: "加入我们",
+        home_nav_joinus: "联系我们",
         info_componey: "陕西山水源环保科技有限公司",
         info_phone: "152-4929-5451",
         info_phone2: "199-9164-5500",

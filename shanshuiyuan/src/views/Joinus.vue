@@ -8,6 +8,10 @@
           <span class="row-span">{{item.val}}</span>
           <span v-if="index == 2" class="phone2">{{i18n.info_phone2}}</span>
         </div>
+        <div class="info_img">
+          <img src="../assets/join_weixin_dan.jpg" style="width: 80px" alt="">
+          <img src="../assets/join_weixin_bo.jpg" style="width: 80px" alt="">
+        </div>
       </el-col>
       <el-col :span="16">
         <img src="../assets/location2.png" alt style="width: 100%" />
@@ -53,5 +57,10 @@ export default {
 .phone2 {
   display: block;
   margin-left: 55px;
+}
+.info_img {
+  margin-top: 25px;
+  margin-left: 57px;
+  text-align:left
 }
 </style>

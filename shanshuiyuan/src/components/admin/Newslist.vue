@@ -12,7 +12,11 @@
     >
       <el-table-column v-if="isadmin" type="selection" width="55"></el-table-column>
       <el-table-column prop="date" label="日期" width="150" sortable="custom"></el-table-column>
-      <el-table-column prop="title" label="标题" sortable="custom" show-overflow-tooltip></el-table-column>
+      <el-table-column prop="title" label="标题" sortable="custom" show-overflow-tooltip>
+        <template slot-scope="scope">
+          <a :href="scope.row.url" target="_blank">{{scope.row.title}}</a>
+        </template>
+      </el-table-column>
       <el-table-column v-if="isadmin" prop="url" label="链接" sortable="custom" show-overflow-tooltip></el-table-column>
       <el-table-column v-if="isadmin" label="操作" width="80">
         <template slot-scope="scope">
@@ -32,6 +36,8 @@
 </template>
 
 <script>
+import { NewsLists } from "../../utils/demoData/testData";
+
 export default {
   name: "Newslist",
   data() {
@@ -135,9 +141,17 @@ export default {
     changePage(curentPage) {
       this.page.curentPage = curentPage;
       this.getNews();
+    },
+    goDetail(row) {
+
+    },
+    initData() {
+      //测试数据
+      this.newsList = NewsLists;
     }
   },
   mounted() {
+    // this.initData();
     this.getNews();
   }
 };
